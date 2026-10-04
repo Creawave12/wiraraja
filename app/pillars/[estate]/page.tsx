@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ParkView from "@/components/sections/pillars/park/ParkView";
 import { estates } from "@/content/pillars";
+import EnergyView from "@/components/sections/pillars/energy/EnergyView";
+import MaduraView from "@/components/sections/pillars/madura/MaduraView";
 
-// Estate yang tampilannya sudah dibuat. Galang dan Madura ditambah di Fase 5B.
 const views: Record<string, React.ComponentType> = {
-  park: ParkView,
+    park: ParkView,
+    energy: EnergyView,
+    madura: MaduraView,
 };
 
 type Props = {

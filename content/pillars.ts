@@ -137,3 +137,186 @@ export const park = {
     ],
   },
 };
+
+/* Galang (energy) */
+type Facility = { name: string; icon: IconName };
+type DistanceRow = { icon: IconName; label: string; value: string };
+
+export const energy = {
+  title: "Wiraraja Green Renewable Energy and Smart-Eco Industrial Park II",
+  gateway: { label: "Render: park gateway", size: "1600 × 1000 px" },
+  intro:
+    "Wiraraja Green Renewable Energy and Smart-Eco Industrial Park II was established in 2023 at Galang Island, Riau Islands, Indonesia. Our Industrial Park aims to provide conducive environment with Smart-Eco Thematic Industrial Park Concept with total area of 851 ha.",
+  stats: [
+    { value: "851", unit: "ha", label: "total area" },
+    { value: "2023", label: "established" },
+  ],
+  facilityGroups: [
+    {
+      title: "Power and utilities",
+      items: [
+        { name: "Solar farm powerplant", icon: "solar" },
+        { name: "Gas powerplant", icon: "fire" },
+        { name: "Waste management and energy", icon: "cycle" },
+        { name: "Water and waste water treatment plant", icon: "drop" },
+      ] satisfies Facility[],
+    },
+    {
+      title: "Living and logistics",
+      items: [
+        { name: "Dormitories and commercial area", icon: "bed" },
+        { name: "Domestic ports", icon: "ship" },
+      ] satisfies Facility[],
+    },
+  ],
+  location: {
+    photo: {
+      label: "Map: Galang Island, Barelang Bridge and Batam",
+      size: "1200 × 1200 px, square",
+    },
+    address:
+      "Located in Galang Island, approximately 43 km, connected by Barelang (Batam-Rempang-Galang) Bridge which provides easy access road.",
+    distances: [
+      { icon: "factory", label: "to Wiraraja Industrial Park I", value: "1 hr 24 min" },
+      { icon: "plane", label: "to Hang Nadim Airport", value: "1 hr 25 min" },
+      { icon: "ship", label: "to Batam Centre Ferry Terminal", value: "1 hr 21 min" },
+      { icon: "anchor", label: "to Batu Ampar Seaport", value: "1 hr 23 min" },
+    ] satisfies DistanceRow[],
+  },
+};
+
+/* Madura */
+export type ZoneId =
+  | "logistics"
+  | "processing"
+  | "halal"
+  | "digital"
+  | "reservoir"
+  | "shipbuilding";
+
+type Zone = {
+  id: ZoneId;
+  name: string;
+  ha: number;
+  icon: IconName;
+  uses: string[];
+  card: boolean;
+};
+
+export const maduraZones: Zone[] = [
+  {
+    id: "logistics",
+    name: "Logistics and Warehousing Zone",
+    ha: 189,
+    icon: "box",
+    card: true,
+    uses: [
+      "Container yard and freight forwarding",
+      "Distribution center",
+      "Cold storage",
+      "Stockpile and bulk material handling",
+      "Shipyard industry",
+    ],
+  },
+  {
+    id: "processing",
+    name: "Processing Industrial Zone",
+    ha: 819,
+    icon: "factory",
+    card: true,
+    uses: [
+      "Food and seafood processing",
+      "Silica and glass industry",
+      "Petrochemical industry",
+      "Light to medium manufacturing",
+    ],
+  },
+  {
+    id: "halal",
+    name: "Halal Industrial Zone",
+    ha: 324,
+    icon: "seal",
+    card: true,
+    uses: [
+      "Halal food industry",
+      "Halal cosmetics",
+      "Pharmaceutical and herbal products",
+      "Halal packaging",
+    ],
+  },
+  {
+    id: "digital",
+    name: "Digital Industrial Zone",
+    ha: 420,
+    icon: "data",
+    card: true,
+    uses: [
+      "Data center",
+      "Smart manufacturing and IoT",
+      "IT and digital services",
+      "Research and development center",
+    ],
+  },
+  { id: "reservoir", name: "Reservoir", ha: 214, icon: "drop", card: false, uses: [] },
+  {
+    id: "shipbuilding",
+    name: "Shipbuilding and Port Zone",
+    ha: 34,
+    icon: "anchor",
+    card: true,
+    uses: [],
+  },
+];
+
+export const madura = {
+  title: "Wiraraja Madura Industrial Estate III",
+  category: "Special Economic Zone (SEZ)",
+  gateway: { label: "Render: Madura estate gateway", size: "1600 × 1000 px" },
+  intro:
+    "The first integrated industrial, logistics, energy, and downstream-processing platform in Madura Island (Bangkalan).",
+  benefits: {
+    title: "Benefits of Special Economic Zone",
+    lead: "Driving sustainable national economic growth and strengthening Indonesia’s global competitiveness.",
+    items: [
+      { icon: "coins", label: "Tax holiday and tax allowance" },
+      { icon: "doc", label: "Ease of customs" },
+      { icon: "doc", label: "Easy, fast and integrated licensing" },
+      { icon: "building", label: "World-class infrastructure" },
+      { icon: "passport", label: "Ease of visa and labor mobility" },
+      { icon: "globe", label: "Integration to global supply chain" },
+    ] satisfies { icon: IconName; label: string }[],
+  },
+  zoneMap: {
+    label: "Photo or map: estate zone map",
+    size: "1920 × 1000 px",
+  },
+  builtForBusiness: [
+    { icon: "road", title: "Accessibility", text: "Toll road and arterial connection" },
+    { icon: "bolt", title: "Reliable energy", text: "Power plant and clean energy" },
+    { icon: "drop", title: "Water supply", text: "Integrated water management" },
+    { icon: "wifi", title: "Digital infrastructure", text: "High-speed internet and smart system" },
+    { icon: "shield", title: "Security", text: "Integrated security system" },
+    { icon: "leaf", title: "Green and sustainable", text: "Eco-industrial park concept" },
+  ] satisfies { icon: IconName; title: string; text: string }[],
+  location: {
+    lead: "Wiraraja Madura Industrial Estate III in relation to existing facilities and infrastructure. Strategic access. Strong connectivity. Limitless potential.",
+    photo: {
+      label: "Map: Java–Madura with distance rings",
+      size: "1200 × 1200 px, square",
+    },
+    // km disimpan sebagai angka: dipakai untuk teks "3 km" DAN panjang bar
+    distances: [
+      { icon: "cap", label: "Trunojoyo University", km: 3 },
+      { icon: "anchor", label: "Kamal Seaport", km: 8.2 },
+      { icon: "building", label: "Bangkalan City", km: 10.2 },
+      { icon: "bridge", label: "Suramadu Bridge", km: 13 },
+      { icon: "building", label: "Surabaya City, capital of East Java Province", km: 26.4 },
+      { icon: "anchor", label: "Tanjung Perak Seaport", km: 30 },
+      { icon: "road", label: "Dupak Toll Gate", km: 30.3 },
+      { icon: "road", label: "Waru Toll Gate", km: 37.6 },
+      { icon: "road", label: "Romokalisari Toll Gate", km: 40.3 },
+      { icon: "plane", label: "Juanda International Airport", km: 46 },
+      { icon: "anchor", label: "JIPE Seaport", km: 63 },
+    ] satisfies { icon: IconName; label: string; km: number }[],
+  },
+};
