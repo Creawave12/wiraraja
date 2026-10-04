@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --breakpoint-md: 900px;
+
+  /*Color Palette*/
+  --color-forest: #0d2b1f;
+  --color-forest-2: #143a2b;
+  --color-abyss: #08180f;
+  --color-brand: #1a5c3a;
+  --color-brand-mid: #2d7a52;
+  --color-gold: #c8a84b;
+  --color-gold-light: #f0dfa0;
+  --color-gold-dark: #9a7a1e;
+  --color-alt: #f4faf6;
+  --color-tile: #e8f5ee;
+  --color-body: #4a4a4a;
+  --color-muted: #7a7a7a;
+  --color-line: rgba(26, 92, 58, 0.15);
+
+  /*Fade in Animation*/
+  --animate-rise: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-body antialiased;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif font-bold text-forest;
+    line-height: 1.15;
+  }
+  h1 {
+    font-size: clamp(36px, 4.8vw, 54px);
+  }
+  h2 {
+    font-size: clamp(26px, 3vw, 36px);
+  }
+  h3 {
+    font-size: 20px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+}
+
+/* Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
